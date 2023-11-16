@@ -20,7 +20,6 @@ galaxy_info:
     - exporter
     - monitoring
     - node
-    - node-exporter
     - observability
     - prometheus
 
