@@ -1,0 +1,26 @@
+---
+- name: package
+  package:
+    name:
+      - prometheus-node-exporter
+      - prometheus-node-exporter-collectors
+  tags:
+    - prometheus-node-exporter
+    - package
+
+- name: Services facts
+  ansible.builtin.service_facts:
+  tags:
+    - prometheus-node-exporter
+    - facts
+
+- name: Service
+  service:
+    name: prometheus-node-exporter
+    enabled: true
+    state: started
+  when:
+    - "'prometheus-node-exporter.service' in services"
+  tags:
+    - prometheus-node-exporter
+    - service

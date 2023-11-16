@@ -1,0 +1,13 @@
+---
+# defaults file for prometheus-node-exporter
+
+# prometheus_node_exporter_defaults :
+# Command line arguments to pass to the server.
+#
+# prometheus_node_exporter_defaults:
+#   # Restrict listening IPv4 address
+#   - --web.listen-address=10.11.12.254:9100
+#   # Enable NTP collector
+#   - --collector.ntp
+#   # Disable ARP collector
+#   - --no-arp-collector.

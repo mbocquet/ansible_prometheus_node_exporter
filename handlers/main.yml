@@ -1,0 +1,6 @@
+---
+# handlers file for prometheus-node-exporter
+- name: restart prometheus-node-exporter
+  service:
+    name: prometheus-node-exporter
+    state: restarted

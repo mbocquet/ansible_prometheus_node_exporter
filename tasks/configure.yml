@@ -1,0 +1,28 @@
+---
+- name: Configure
+  when:
+    - prometheus_node_exporter_defaults is defined
+    - prometheus_node_exporter_defaults | length
+  tags:
+    - prometheus-node-exporter
+    - configure
+    - default
+  block:
+    - name: Dpkg divert
+      community.general.dpkg_divert:
+        path: /etc/default/prometheus-node-exporter
+        divert: /etc/default/prometheus-node-exporter.distrib
+        rename: true
+      tags:
+        - divert
+
+    - name: Default
+      ansible.builtin.lineinfile:
+        create: true
+        path: /etc/default/prometheus-node-exporter
+        regexp: ^ARGS=
+        line:
+          "ARGS=\"{{ prometheus_node_exporter_defaults | sort | join(' ') }}\""
+      notify: restart prometheus-node-exporter
+      tags:
+        - args
