@@ -1,7 +1,7 @@
 'ansible_prometheus_node_exporter'.
 Ansible role to install and configure Prometheus node exporter.
 
-Copyright © 2023 Mathias BOCQUET (mbocquet@sekoya.org)
+Copyright © 2023-2024 Mathias BOCQUET (mbocquet@sekoya.org)
 
 This file is part of 'ansible_prometheus_node_exporter' Ansible role.
 
