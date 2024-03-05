@@ -1,6 +1,6 @@
 ---
 # handlers file for prometheus-node-exporter
-- name: restart prometheus-node-exporter
-  service:
+- name: Restart prometheus-node-exporter
+  ansible.builtin.service:
     name: prometheus-node-exporter
     state: restarted

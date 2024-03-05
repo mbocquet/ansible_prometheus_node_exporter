@@ -1,21 +1,23 @@
 ---
-- name: package
-  package:
+- name: Package
+  ansible.builtin.package:
     name:
       - prometheus-node-exporter
       - prometheus-node-exporter-collectors
   tags:
     - prometheus-node-exporter
+    - install
     - package
 
 - name: Services facts
   ansible.builtin.service_facts:
   tags:
     - prometheus-node-exporter
+    - install
     - facts
 
 - name: Service
-  service:
+  ansible.builtin.service:
     name: prometheus-node-exporter
     enabled: true
     state: started
@@ -23,4 +25,5 @@
     - "'prometheus-node-exporter.service' in services"
   tags:
     - prometheus-node-exporter
+    - install
     - service
