@@ -1,0 +1,20 @@
+---
+- name: Services facts
+  ansible.builtin.service_facts:
+  tags:
+    - prometheus-node-exporter
+    - clean
+    - facts
+
+- name: Package
+  ansible.builtin.package:
+    name:
+      - openipmi
+      - smartmontools
+    state: absent
+    purge: true
+    update_cache: false
+  tags:
+    - prometheus-node-exporter
+    - clean
+    - package
