@@ -6,10 +6,11 @@
     - clean
     - facts
 
-- name: Package
+- name: Package clean
   ansible.builtin.package:
     name:
       - ipmitool
+      - nvme-cli
       - openipmi
       - smartmontools
     state: absent
