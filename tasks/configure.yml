@@ -2,7 +2,7 @@
 - name: Configure
   when:
     - prometheus_node_exporter_defaults is defined
-    - prometheus_node_exporter_defaults | length
+    - prometheus_node_exporter_defaults | length > 0
   tags:
     - prometheus-node-exporter
     - configure
@@ -26,6 +26,6 @@
         regexp: ^ARGS=
         line:
           "ARGS=\"{{ prometheus_node_exporter_defaults | sort | join(' ') }}\""
-      notify: restart prometheus-node-exporter
+      notify: Restart prometheus-node-exporter
       tags:
         - args
