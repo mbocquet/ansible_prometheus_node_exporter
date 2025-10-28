@@ -20,7 +20,7 @@
       ansible.builtin.lineinfile:
         owner: root
         group: root
-        mode: 0644
+        mode: "0644"
         create: true
         path: /etc/default/prometheus-node-exporter
         regexp: ^ARGS=
